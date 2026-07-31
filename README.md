@@ -1,42 +1,49 @@
-# G-TECH — Ciridae-inspired Design System
+# G-TECH — Página web
 
-Página web profesional con estética "void chamber with ember pulse": near-black canvas, único acento cromático blue (#3c6df4) usado solo como hairline, todo uppercase weight 400, pills 1440px, cero sombras, cero gradientes.
+Página web profesional con estética Ciridae: dark void canvas, acento blue (#3c6df4), tipografía Oswald + Inter + Roboto Mono, animaciones GSAP con ScrollTrigger.
 
-## Stack
-- Next.js 16 (App Router, static export)
-- TypeScript 5
-- Tailwind CSS 4
-- GSAP 3 + @gsap/react + ScrollTrigger
-- Fonts: Oswald (display) + Inter (body) + Roboto Mono (system data)
+## Deploy en Vercel (recomendado)
 
-## Ver la página ahora (sin instalar nada)
-1. Descomprimí el zip
-2. Abrí la carpeta `out/`
-3. Doble click en `index.html` → se abre en tu navegador con todos los estilos
-
-## Subir a GitHub
+### Opción A: Vía GitHub (auto-deploy)
+1. Subí este proyecto a un repo de GitHub:
 ```bash
-cd gtech-ciridae
 git init
 git add .
-git commit -m "G-TECH Ciridae redesign"
+git commit -m "G-TECH website"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/gtech.git
 git push -u origin main
 ```
+2. Entrá a https://vercel.com/new
+3. Importá el repo
+4. Vercel detecta Next.js automáticamente
+5. Click **Deploy** — listo en 1 minuto
 
-## Publicar en Cloudflare Pages
-1. Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git
-2. Build command: `bun run build`
-3. Build output directory: `out`
+### Opción B: Drag & drop directo
+1. Entrá a https://vercel.com/new
+2. Arrastrá esta carpeta a la página
+3. Click **Deploy**
+
+## Configuración Vercel
+- Framework: **Next.js** (autodetectado)
+- Build command: `bun run build` (o `npm run build`)
+- Install command: `bun install` (o `npm install`)
+- Node version: 20 (ver `.nvmrc`)
+- Output: automático (Vercel maneja todo)
+
+## Stack
+- Next.js 16
+- TypeScript 5
+- Tailwind CSS 4
+- GSAP 3 + ScrollTrigger
+- Fonts: Oswald + Inter + Roboto Mono
 
 ## Personalización
 Editá `src/lib/site.ts` (tel, email, URL, Instagram, horarios).
-Después: `bun run build` para regenerar `out/`.
+Después hacé push y Vercel redeployea automáticamente.
 
-## Desarrollo
+## Desarrollo local
 ```bash
-bun install
+bun install      # o: npm install
 bun run dev      # http://localhost:3000
-bun run build    # genera out/
 ```

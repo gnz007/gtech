@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  images: { unoptimized: true },
+  // Para Vercel: NO usar output: "export" — Vercel soporta Next.js nativamente
+  // con SSR, image optimization y edge functions.
+  // Si querés deployar en Cloudflare Pages o hosting estático, cambiá a:
+  //   output: "export",
+  //   images: { unoptimized: true },
+  //   assetPrefix: "./",
   typescript: { ignoreBuildErrors: false },
   reactStrictMode: true,
-  trailingSlash: true,
-  // Paths relativos — permite abrir index.html directamente con doble click
-  // sin necesidad de servidor. Funciona en file:// y en cualquier host.
-  assetPrefix: "./",
-  basePath: "",
 };
 
 export default nextConfig;
